@@ -1,0 +1,14 @@
+{% extends "collection/base.html" %}
+
+{% block content %}
+    <div class="actions col-10 col-t-4 bigger-text">
+        Collections<button class="button" onclick="window.location='{% url 'collection:fetch' %}?next={% url 'collection:index' %}'">Fetch</button>
+    </div>
+    <div class="table col-10 col-t-4">
+        {% for collection in dataset_list %}
+            <div class="row col-10 col-t-4">
+                <a href="{% url 'collection:details' collection.id %}"><div class="row-content">{{ collection.timestamp }}</div></a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

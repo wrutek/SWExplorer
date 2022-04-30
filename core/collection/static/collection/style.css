@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+.col-1 {width: 10%;}
+.col-2 {width: 20%;}
+.col-3 {width: 30%;}
+.col-4 {width: 40%;}
+.col-5 {width: 50%;}
+.col-6 {width: 60%;}
+.col-7 {width: 70%;}
+.col-8 {width: 80%;}
+.col-9 {width: 90%;}
+.col-10 {width: 100%;}
+
+.bigger-text {font-size: 30px;}
+.header-text {font-size: 40px;}
+
+@media only screen and (max-width: 768px) {
+  .col-t-0 {width: 0%;}
+  .col-t-1 {width: 25%;}
+  .col-t-2 {width: 50%;}
+  .col-t-3 {width: 75%;}
+  .col-t-4 {width: 100%;}
+
+  .bigger-text {
+    font-size: 35px;
+  }
+}
+
+[class*="col-"] {
+  float: left;
+  /*border: 1px solid red;*/
+}
+
+.title {
+  background-color: lightcoral;
+  height: 50px;
+  vertical-align: middle;
+  position: relative;
+  color: lightyellow;
+}
+.appName {
+  position: absolute;
+  font-weight: bold;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 5vw;
+}
+.links {
+  /*position: absolute;*/
+}
+.content {
+  padding-top: 5vh;
+}
+.actions {
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  font-weight: bold;
+}
+.table {
+  border: lightslategray solid 1px;
+  border-radius: 10px;
+}
+.row {
+  /*padding-bottom: 0.5vw;*/
+  padding-top: 0.5vw;
+}
+.row:first-child {
+  border-radius: 10px 10px 0 0;
+}
+.row:last-child {
+  border-radius: 0 0 10px 10px;
+}
+.row:last-child > a > .row-content {
+  border-bottom: none;
+}
+.row > a {
+  text-decoration: none;
+  color: black;
+}
+.row:hover {
+  background-color: lightslategray;
+  color: white;
+}
+.row-content {
+  /*border: 1px solid red;*/
+  height: 100%;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  padding-bottom: 0.7vw;
+  border-bottom: lightslategray 1px solid;
+
+}
+.button {
+  /*font-size: 1vw;*/
+  background-color: lightslategray;
+  margin-left: 1vw;
+  padding: 0.5vw 1vw 0.5vw 1vw;
+  /*width: 5vw;*/
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+.hbutton {
+  margin-left: 0;
+  border: 1px solid white;
+  padding: 0.3vw;
+}
+.hbutton.selected {
+  background-color: lightcoral;
+}
+
+.links {
+  background-color: lightcoral;
+}
+.links > a {
+  padding-left: 1vw;
+  text-decoration: none;
+  color: lightyellow;
+}
+.header-links > a {
+  text-decoration: none;
+  color: lightcoral;
+}

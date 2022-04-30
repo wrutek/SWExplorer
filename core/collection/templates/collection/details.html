@@ -1,0 +1,32 @@
+{% extends "collection/base.html" %}
+
+{% block content %}
+    <div class="actions col-10 col-t-4 bigger-text">
+        Explore
+    </div>
+    <table class="table col-10">
+        <thead>
+            <tr>
+                {% for head_c in headers %}
+                    <th class="header-links">
+                        <a href="{% url 'collection:value_count' dataset_id %}?group_by={{ head_c }}">{{ head_c }}</a>
+                    </th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in dataset %}
+                <tr class="row row-content">
+                    {% for col in row %}
+                        <td>{{ col }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if show_more %}
+    <div class="button-container col-10 col-t-4">
+        <button class="button" onclick="window.location='{% url 'collection:details' dataset_id %}?page_size={{ page_size }}'">Load more</button>
+    </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   {% load static %}
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'collection/style.css' %}">
+    <title>SWExplorer</title>
+</head>
+<body>
+<div class="title col-10">
+    <div class="appName header-text">SWExplorer</div>
+</div>
+
+<div class="links">
+    <a href="{% url 'collection:index' %}">* Collections</a>
+</div>
+
+<div class="col-1 col-t-0">&nbsp;</div>
+<div class="content col-8 col-t-4">
+    {%  block content %}
+    {%  endblock %}
+</div>
+<div class="col-1 col-t-0">&nbsp;</div>
+{% block scripts %}
+    <script></script>
+{% endblock %}
+
+</body>
+</html>

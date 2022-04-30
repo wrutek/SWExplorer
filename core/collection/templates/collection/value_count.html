@@ -1,0 +1,51 @@
+{% extends "collection/base.html" %}
+
+{% block content %}
+    <div class="actions col-10 col-t-4 bigger-text">
+        Counter
+    </div>
+    <div class="group-by col-10 col-t-4">
+        {% for h in all_headers %}
+            <button class="button hbutton col-1 col-t-1{% if h in group_by %} selected{% endif %}"
+                    onclick="jumpToValueCount('{% url 'collection:value_count' dataset_id %}', '{{ group_by|join:','}}', '{{ h }}')"
+            >{{ h }}</button>
+        {% endfor %}
+    </div>
+    <table class="table col-10">
+        <thead>
+            <tr>
+                {% for head_c in headers %}
+                    <th class="header-links">
+                        {{ head_c }}
+                    </th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in grouped %}
+                <tr class="row row-content">
+                    {% for col in row %}
+                        <td>{{ col }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        function jumpToValueCount(url, headers, group_by) {
+            let new_groupby = headers.split(',');
+            if (new_groupby.indexOf(group_by) >= 0) {
+                let i = new_groupby.indexOf(group_by)
+                let left = new_groupby.slice(0, i);
+                let right = new_groupby.slice(i + 1);
+                new_groupby = left.concat(right);
+            } else {
+                new_groupby.push(group_by);
+            }
+            window.location.href = url + '?' + 'group_by=' + new_groupby.join(',');
+        }
+    </script>
+{% endblock %}
